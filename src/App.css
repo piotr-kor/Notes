@@ -26,11 +26,6 @@ main {
     padding: 0px 0px 20px 0px;
     border-bottom: 1px solid grey;
     }
-  #kalendarz_miesiac {
-    padding: 20px 0px 0px 0px;
-    display: grid;
-    grid-template-columns: 14% 14% 14% 14% 14% 14% 14%;
-    }
   
   #aside_left {
     float: left;

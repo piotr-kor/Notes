@@ -90,7 +90,7 @@ const Dzien = (props) => {
         <div className={props.classes}>
             <div className="data_dnia">{day} {months[month]} {day==1 && year}</div>
             <div className="plusik"><a href={add_event_link}>&nbsp;+&nbsp;</a></div>
-            <div className="eventy">{props.eventy} </div>
+            <div className="eventy" dangerouslySetInnerHTML={{ __html: props.eventy }} />
         </div>
     )
 } 
@@ -114,8 +114,8 @@ const eventyDnia = (events, currentDate) => {
     let thisDayEventsTxt = ''
     thisDayEvents.forEach(elem => {
         let t = elem.kiedy.slice(-5)
-        let e = elem.event.slice(0,13)
-        thisDayEventsTxt += t + ' ' + e         //problem braku <br> i czerni zamiast szarości
+        let e = elem.event.slice(0,12)
+        thisDayEventsTxt += '<span class="eventy">' + t + ' ' + e + '</span><br>'        //problem braku <br> i czerni zamiast szarości
     });
     return(thisDayEventsTxt)
 }
