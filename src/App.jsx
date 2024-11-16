@@ -19,7 +19,7 @@ function App() {
             <div id="aside_left">
               <section>
               <h3>To do</h3>
-                Display to_do
+                Display to_do<br />
               </section>
             </div>
             <div id="aside_center">

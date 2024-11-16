@@ -53,16 +53,4 @@
     display: grid;
     grid-template-columns: 14% 14% 14% 14% 14% 14% 14%;
     }
-  #kalendarz_miesiac div {      /* not tested - 4 zoom */
-      position: relative;
-      transition: all 0.3s ease-in-out;
-    }
-  #kalendarz_miesiac div:focus {       /* not tested - 4 zoom */
-    position: absolute;
-    width: 300px; /* Ustawiona szerokość */
-    height: 300px; /* Ustawiona wysokość */
-    top: 50%; /* Wyśrodkowanie */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-  }
+    

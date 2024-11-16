@@ -2,12 +2,15 @@
 import { useState } from 'react';
 import './Kalendarz.css'
 import { useNotepadContext } from './NotepadContext';
+import { Dzien } from './Dzien'
 
 
 export const Kalendarz = () => {
+    // eslint-disable-next-line no-unused-vars
     const { events, addEvent, removeEvent } = useNotepadContext();
     const [extraWeeksBefore, setExtraWeeksBefore] = useState(0)
     const [extraWeeksAfter, setExtraWeeksAfter] = useState(0)
+    const [zoomedDay, setZoomedDay] = useState('2000-13-32')
     const today = new Date()
     const dayOfWeek = today.getDay()                            //0 to niedziela, 1 to poniedziałek,...   
     const amountOfDaysToDisplay = 63
@@ -27,7 +30,7 @@ export const Kalendarz = () => {
         if (currentDate.getMonth() != today.getMonth()) {klasy += " szary";}            //inne miesiące
         if (i>6+7*extraWeeksBefore && i<14+7*extraWeeksBefore) {klasy += " this_week";}         //aktualny tydzień
         if (currentDate.getMonth() != yesterdaysMonth) { czyNowyMiesiac = 1 } else {czyNowyMiesiac = 0}
-       
+
         daysToDisplay.push({
             classes: klasy, 
             days_date: formattedDate(currentDate),
@@ -35,6 +38,7 @@ export const Kalendarz = () => {
             czy_nowy_miesiac: czyNowyMiesiac
           });
           yesterdaysMonth = currentDate.getMonth()
+          //console.log (zoomedDay)
     }
     return (
         <div> 
@@ -55,6 +59,9 @@ export const Kalendarz = () => {
                             classes={day.classes}
                             days_date={day.days_date}
                             eventy={day.eventy}
+                            isZoomed={day.days_date==zoomedDay}
+                            setZoomedD={setZoomedDay}
+                            zoomedD={zoomedDay}
                         />
                     </>
                 ))}
@@ -79,21 +86,6 @@ const WiecejBtn = (props) => {
         </span> 
     )
 }
-
-const Dzien = (props) => {
-    const [year, month, day] = props.days_date.split('-');      //destructuring
-    const months = {1: "sty.",2: "lut.",3: "mar.",4: "kwi.",5: "maja",6: "cze.",7: "lip.",
-        8: "sie.",9: "wrz.",10: "paź.",11: "lis.",12: "gru.", "01": "sty.","02": "lut.","03": "mar.",
-        "04": "kwi.","05": "maja","06": "cze.","07": "lip.","08": "sie.","09": "wrz."}
-    const add_event_link = "index.php?a=add_event&d=" + props.days_date
-    return(
-        <div className={props.classes}>
-            <div className="data_dnia">{day} {months[month]} {day==1 && year}</div>
-            <div className="plusik"><a href={add_event_link}>&nbsp;+&nbsp;</a></div>
-            <div className="eventy" dangerouslySetInnerHTML={{ __html: props.eventy }} />
-        </div>
-    )
-} 
 
 const przerwa = Array.from({ length: 14 }, (_, index) => (<div key={index}>&nbsp;</div>));
                                                                 //przerwa z divów między miesiącami

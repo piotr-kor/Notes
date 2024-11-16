@@ -22,3 +22,15 @@ export const initialEvents = [
     { id: 2, hintname: 'Gmail', hint: '987ujhygt888' },
     { id: 3, hintname: 'OLX', hint: 'S%^%^%^&hhbbb' }
   ];
+  export const months = {1: "sty.",2: "lut.",3: "mar.",4: "kwi.",5: "maja",6: "cze.",7: "lip.",
+    8: "sie.",9: "wrz.",10: "paź.",11: "lis.",12: "gru.", "01": "sty.","02": "lut.","03": "mar.",
+    "04": "kwi.","05": "maja","06": "cze.","07": "lip.","08": "sie.","09": "wrz."}
+
+  export  const miesiace = {
+    1: "stycznia", 2: "lutego", 3: "marca", 4: "kwietnia", 5: "maja",
+    6: "czerwca", 7: "lipca", 8: "sierpnia", 9: "września",
+    10: "października", 11: "listopada", 12: "grudnia",
+    "01": "stycznia", "02": "lutego", "03": "marca", "04": "kwietnia",
+    "05": "maja", "06": "czerwca", "07": "lipca", "08": "sierpnia",
+    "09": "września"
+};
