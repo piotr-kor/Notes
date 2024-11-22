@@ -6,7 +6,7 @@ import { useNotepadContext } from './NotepadContext';
 
 export const Dzien = (props) => {
     // eslint-disable-next-line no-unused-vars
-    const { events, addEvent, removeEvent } = useNotepadContext();
+    const {events, addEvent, removeEvent} = useNotepadContext();
     const [showModal, setShowModal] = useState(false);
 
     const handleShowModal = () => setShowModal(true);   
@@ -36,28 +36,29 @@ export const Dzien = (props) => {
                     <Modal.Body>
                         <div dangerouslySetInnerHTML={{ __html: props.eventy }} />
                         <form>
-                            <div className="row">
-                                <div className="col-3">
-                                    <label htmlFor="timeInput" className="form-label">Godzina</label>
-                                    <input
-                                        type="time"
-                                        className="form-control"
-                                        id="timeInput"
-                                        name="time"
-                                        defaultValue="13:45"
-                                    />
+                            {events.map((event, index) => (
+                                <div className="row mb-3" key={index}>
+                                    <div className="col-3">
+                                        <input
+                                            type="time"
+                                            className="form-control"
+                                            id={`timeInput-${index}`}
+                                            name={`time-${index}`}
+                                            defaultValue={event.kiedy.split(' ')[1]}
+                                        />
+                                    </div>
+                                    <div className="col-9">
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id={`textInput-${index}`}
+                                            name={`text-${index}`}
+                                            defaultValue={event.event}
+                                            placeholder="Wpisz tekst..."
+                                        />
+                                    </div>
                                 </div>
-                                <div className="col-9">
-                                    <label htmlFor="textInput" className="form-label">Tekst</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="textInput"
-                                        name="text"
-                                        placeholder="Wpisz tekst..."
-                                    />
-                                </div>
-                            </div>
+                            ))}
                         </form>
                     </Modal.Body>
                 <Modal.Footer>

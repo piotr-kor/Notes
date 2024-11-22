@@ -13,7 +13,7 @@ export const initialEvents = [
     { id: 2, event: 'Warsztaty React', kiedy: '2024-11-05 08:00', done: 0 },
     { id: 3, event: 'Prezentacja wyników projektu', kiedy: '2024-11-10 18:30', done: 0 },
     { id: 4, event: 'Warsztaty Angular', kiedy: '2024-11-25 08:00', done: 1 },
-    { id: 5, event: 'Omówienie błędów projektu', kiedy: '2024-11-19 18:30', done: 0 },
+    { id: 5, event: 'Omówienie błędów projektu', kiedy: '2024-11-19 19:30', done: 0 },
     { id: 6, event: 'Omówienie zalet projektu', kiedy: '2024-11-19 18:40', done: 1 }
   ];
 

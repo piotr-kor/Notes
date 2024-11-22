@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './Kalendarz.css'
 import { useNotepadContext } from './NotepadContext';
 import { Dzien } from './Dzien'
-
+import { eventyDnia } from './EventyDnia';
 
 export const Kalendarz = () => {
     // eslint-disable-next-line no-unused-vars
@@ -96,18 +96,5 @@ function formattedDate(some_day) {                              //obiekt daty na
     return `${y}-${m}-${d}`                                     //Template literals: `${}`
   }
 
-const getThisDayEvents = (events, thisDay) => {
-    const thisDayDate = thisDay.toISOString().split('T')[0];
-    return events.filter(event => event.kiedy.startsWith(thisDayDate));
-  };
 
-const eventyDnia = (events, currentDate) => {
-    let thisDayEvents = getThisDayEvents(events, currentDate);
-    let thisDayEventsTxt = ''
-    thisDayEvents.forEach(elem => {
-        let t = elem.kiedy.slice(-5)
-        let e = elem.event.slice(0,12)
-        thisDayEventsTxt += '<span class="eventy">' + t + ' ' + e + '</span><br>'        //problem braku <br> i czerni zamiast szarości
-    });
-    return(thisDayEventsTxt)
-}
+
